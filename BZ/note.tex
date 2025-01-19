@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+
+% Page setup
+\geometry{a4paper, margin=1in}
+\pagestyle{fancy}
+\fancyhead[L]{\textbf{Documentation}}
+\fancyhead[R]{\textbf{Version 1.0}}
+\fancyfoot[C]{\thepage}
+
+\title{\textbf{Documentation Overview}}
+\author{Prepared by Egor Adodin}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Author Information}
+\begin{itemize}
+    \item \textbf{Name:} Egor Adodin
+    \item \textbf{Group:} ITPM-124
+    \item \textbf{Instructor:} Alexey Viktorovich Mokryakov
+    \item \textbf{University:} RGU Kosygina
+    \item \textbf{Department:} Engineering and Technology
+\end{itemize}
+
+\section*{Project Overview}
+\textbf{Computer System (CS):} A minimal program that outputs \texttt{Hello World!}. This note provides detailed installation and licensing instructions for the software.
+
+\section*{Installation Guide}
+\begin{enumerate}
+    \item Navigate to the \textbf{BZ} folder located on the Desktop.
+    \item Open a terminal and execute the command \texttt{make configure}.
+    \begin{itemize}
+        \item Follow the system prompts and provide the necessary information.
+    \end{itemize}
+    \item Once configured, run \texttt{make install} to complete the installation.
+\end{enumerate}
+
+\section*{License}
+This software is free to use and distribute for non-commercial purposes.
+
+\end{document}
