@@ -9,6 +9,10 @@
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppFormatterOtherPage" type="string" />
     <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="3" type="long" />
+<<<<<<< HEAD
+=======
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
+>>>>>>> db1512a5e4e75ebff1833c5e331d1f3a821fb922
   </component>
   <component name="CMakePresetLoader">{
   &quot;useNewFormat&quot;: true
@@ -30,10 +34,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c7fbea00-4ee7-4ab9-b425-92e9d8bf258f" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/RGU-labs.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+>>>>>>> db1512a5e4e75ebff1833c5e331d1f3a821fb922
       <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
@@ -77,6 +86,11 @@
       <change afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/trieNode.c" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/RGU-labs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RGU-labs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+>>>>>>> db1512a5e4e75ebff1833c5e331d1f3a821fb922
       <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programming_01/task1.c" beforeDir="false" afterPath="$PROJECT_DIR$/programming_01/task1.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programming_01/task2.c" beforeDir="false" afterPath="$PROJECT_DIR$/programming_01/task2.c" afterDir="false" />
@@ -142,9 +156,15 @@
     </key>
   </component>
   <component name="RunManager">
+<<<<<<< HEAD
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+=======
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+>>>>>>> db1512a5e4e75ebff1833c5e331d1f3a821fb922
       </method>
     </configuration>
     <configuration name="Unnamed" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
@@ -209,7 +229,10 @@
       <workItem from="1737555086912" duration="1200000" />
       <workItem from="1737568897592" duration="6663000" />
       <workItem from="1737585166849" duration="10000" />
+<<<<<<< HEAD
       <workItem from="1737585276353" duration="61000" />
+=======
+>>>>>>> db1512a5e4e75ebff1833c5e331d1f3a821fb922
     </task>
     <servers />
   </component>
