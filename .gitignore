@@ -9,3 +9,4 @@ cmake-build-debug/
 test.c
 test.txt
 trieNode.c
+.DS_Store
