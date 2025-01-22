@@ -1,0 +1,11 @@
+# Игнорируем папки
+.git/
+.idea/
+.vscode/
+class_work/
+cmake-build-debug/
+
+# Игнорируем файлы
+test.c
+test.txt
+trieNode.c
