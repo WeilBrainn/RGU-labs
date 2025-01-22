@@ -25,8 +25,7 @@ char *reverse_string(char *str)
   char *reversed = (char *)malloc((length + 1) * sizeof(char));
   if (reversed == NULL)
   {
-    printf("Ошибка выделения памяти\n");
-    exit(1);
+    return 1;
   }
 
   // Копируем символы в обратном порядке
@@ -49,8 +48,7 @@ char *uppercase_odd_positions(const char *str)
   // проверка на выделение памяти
   if (upper_string == NULL)
   {
-    printf("Братанчик, у тебя ошибка выделения памяти =))");
-    exit(1);
+    return 1;
   }
 
   // перебор символов и преобразование
@@ -73,65 +71,57 @@ char *uppercase_odd_positions(const char *str)
   return upper_string;
 }
 
-// функция сортировки цифр/символов
-char *sort_string(const char *str)
+int comparer(
+    void const *c1,
+    void const *c2)
 {
-  // получаем длину текста
-  int lenght = calculating_length(str);
-  // Массивы для хранения цифр, букв и других символов
-  char *numbers = malloc(lenght + 1);
-  char *letters = malloc(lenght + 1);
-  char *other_symbols = malloc(lenght + 1);
-  // Индексы для записи в соответствующие массивы
-  int num_index = 0;
-  int letter_index = 0;
-  int other_index = 0;
-  // новая строка и индекс к ней
-  char *new_str = malloc(lenght + 1);
-  int new_str_index = 0;
+  char const *symb1 = (char const *)c1;
+  char const *symb2 = (char const *)c2;
 
-  for (int i = 0; i < lenght; i++)
+  if (isdigit(*symb1))
   {
-    // проверка на то строка это или нет
-    if (isdigit(str[i])) // Если цифра
+    if (!isdigit(*symb2))
     {
-      numbers[num_index++] = str[i];
+      return -1;
     }
-    else if (isalpha(str[i])) // Если буква
+
+    return symb1 - symb2;
+  }
+
+  if (isalpha(*symb1))
+  {
+    if (isdigit(*symb2))
     {
-      letters[letter_index++] = str[i];
+      return 1;
     }
-    else // Остальные символы
+
+    if (isalpha(*symb2))
     {
-      other_symbols[other_index++] = str[i];
+      return symb1 - symb2;
     }
+
+    return -1;
   }
 
-  // добавляем в новую строку - цифры
-  for (int j = 0; j < num_index; j++, new_str_index++)
+  if (isalnum(*symb2))
   {
-    new_str[new_str_index] = numbers[j];
+    return 1;
   }
 
-  // добавляем в новую строку - буквы
-  for (int k = 0; k < letter_index; k++, new_str_index++)
+  return symb1 - symb2;
+}
+
+int foo(
+    char *str)
+{
+  if (str == NULL)
   {
-    new_str[new_str_index] = letters[k];
+    return 1;
   }
 
-  // добавляем в новую стоку - символы
-  for (int h = 0; h < other_index; h++, new_str_index++)
-  {
-    new_str[new_str_index] = other_symbols[h];
-  }
+  qsort(str, calculating_length(str), sizeof(char), comparer);
 
-  // ставим нуль-терминатор
-  new_str[new_str_index] = '\0';
-  // принтуем что получилось (нужно будет удалить)
-  printf("%s\n", new_str);
-
-  // возвращаем новую строку
-  return new_str;
+  return 0;
 }
 
 char *concatenation_string(char *strings[], int count_string, unsigned int seed)
@@ -140,6 +130,9 @@ char *concatenation_string(char *strings[], int count_string, unsigned int seed)
 
   // Подсчёт общей длины всех строк с пробелами
   int total_length = 0;
+  // Создаём массив индексов для чётных строк
+  int even_count = (count_string + 1) / 2;
+  int indices[even_count];
   for (int i = 1; i < count_string; i += 2)
   {
     int j = 0;
@@ -156,13 +149,12 @@ char *concatenation_string(char *strings[], int count_string, unsigned int seed)
   char *new_str = (char *)malloc((total_length + 1) * sizeof(char));
   if (new_str == NULL)
   {
+#ifdef DEBUG
     printf("Ошибка выделения памяти\n");
-    exit(1);
+#endif
+    return 1;
   }
 
-  // Создаём массив индексов для чётных строк
-  int even_count = (count_string + 1) / 2;
-  int indices[even_count];
   for (int i = 0, j = 1; i < even_count; i++, j += 2)
   {
     indices[i] = j;
@@ -223,7 +215,7 @@ int main(int argc, char *argv[])
   if (argc < 3)
   {
     printf("Использование: %s <flag> [дополнительные аргументы]\n", argv[0]);
-    return 1; // вернем ошибочку
+    return 2; // вернем ошибочку
   }
 
   // проверка на флаг -l (подсчет длинны строки)
@@ -232,7 +224,7 @@ int main(int argc, char *argv[])
     if (argc < 3) // Проверка на наличие строки для подсчёта длины
     {
       printf("Для флага -l требуется строка! \n");
-      return 1;
+      return 2;
     }
     int lenght = calculating_length(argv[2]);
     printf("Длина строки: %d\n", lenght);
@@ -244,7 +236,7 @@ int main(int argc, char *argv[])
     if (argc < 3) // Проверка на наличие строки для подсчёта длины
     {
       printf("Для флага -r требуется строка! \n");
-      return 1;
+      return 2;
     }
     char *reversed = reverse_string(argv[2]);      // що тут говорить, вызываем функцию реверса
     printf("Перевернутая строка: %s\n", reversed); // принтуем результат
@@ -256,7 +248,7 @@ int main(int argc, char *argv[])
     if (argc < 3)
     {
       printf("Для флага -u требуется строка! \n");
-      return 1;
+      return 2;
     }
     char *uppercase_str = uppercase_odd_positions(argv[2]); // вызываем функцию аппер-кейса
     printf("Строка с нечетными символами в верхнем регистре: %s\n", uppercase_str);
@@ -268,7 +260,7 @@ int main(int argc, char *argv[])
     if (argc > 4) // а вот туть должна быть seed и хотя бы одна строка
     {
       printf("Для флага -c требуется seed и хотя бы одна строка\n");
-      return 1;
+      return 2;
     }
     unsigned int seed = (unsigned int)atoi(argv[2]); // преобразуем строку seed в число
     // вызываем функцию начиная с 3 и до конца агрументов
@@ -281,7 +273,7 @@ int main(int argc, char *argv[])
   {
     printf("Неизвестный флаг: %s\n", argv[1]);
     printf("Все-го хо-ро-ше-го!!! \n");
-    return 1;
+    return 2;
   }
 
   // успешное завершение программы

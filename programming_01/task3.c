@@ -2,35 +2,30 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-void release_resources(...)
+void release_resources(void *first, ...)
 {
-  va_list args;         // переменная для работы с переменными аргументами
-  va_start(args, args); // Инициализируем args для доступа к переменным аргументам
+  va_list args;          // переменная для работы с переменными аргументами
+  va_start(args, first); // Инициализируем args для доступа к переменным аргументам
 
-  void *resourse;  // указатель на ресурс или память
-  int action_flag; // флаг определяющий действие для ресурса (например, 1 - освободить память, 2 - закрыть файл)
+  void *resource = first; // Начинаем с первого аргумента
+  int action_flag;
 
-  // Цикл, который обрабатывает каждую пару аргументов (указатель и флаг действия)
-  while (1)
+  while (resource != NULL)
   {
-    resourse = (args, void *); // Получаем следующий аргумент из args как указатель на ресурс
-    if (resourse == NULL)      // проверяем на NULL
-    {
-      break;
-    }
-
-    action_flag = va_arg(args, int); // получаем некст аргумент типа int
+    action_flag = va_arg(args, int);
 
     if (action_flag == 1)
     {
-      free(resourse); // если флаг 1 то освобождаем память
-      printf("Сударь ваша память свободна. \n")
+      free(resource); // если флаг 1 то освобождаем память
+      printf("Сударь ваша память свободна. \n");
     }
     else if (action_flag == 2)
     {
-      fclose((FILE *)resourse); // если флаг 2 то закрываем файл
+      fclose((FILE *)resource); // если флаг 2 то закрываем файл
       printf("Файл закрыт.\n");
     }
+
+    resource = va_arg(args, void *); // Получаем следующий ресурс
   }
   va_end(args); // Завершаем работу с переменными аргументами
 }

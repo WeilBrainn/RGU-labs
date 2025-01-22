@@ -1,69 +1,50 @@
 #include <stdio.h>
-#include <string.h>
 
-void convert_to_base2r(unsigned int num, int r)
+// Функция для перевода числа в систему счисления с основанием 2^r
+void convertToBase2R(int num, int r)
 {
-  // Маска для получения остатка при делении на 2^r
-  unsigned int mask = (1 << r) - 1; // Например, если r = 2, то mask = 3 (11 в двоичной системе)
-  char result[64];                  // Массив для хранения результата
-  int index = 0;                    // Индекс для добавления символов в result
+  // Создаем маску для извлечения цифр
+  int mask = (1 << r) - 1; // Маска будет иметь r единиц в двоичном представлении
 
-  // Пока num больше 0
-  while (num > 0)
+  // Массив для хранения цифр результата
+  int digits[32]; // 32 бита достаточно для int
+  int count = 0;
+
+  // Пока число не станет равным 0
+  while (num)
   {
-    // Получаем остаток при делении с помощью побитовой операции И
-    unsigned int remainder = num & mask;
-
-    // Преобразуем остаток в символ и сохраняем его в result
-    if (remainder < 10)
-    {
-      result[index++] = '0' + remainder; // Если остаток меньше 10, это цифра
-    }
-    else
-    {
-      result[index++] = 'A' + (remainder - 10); // Если остаток больше 10, это символ (A, B, C и т.д.)
-    }
-
-    // Сдвиг числа вправо на r бит для деления на 2^r
+    // Извлекаем младшие r бит с помощью маски
+    digits[count] = num & mask;
+    // Сдвигаем число вправо на r позиций
     num = num >> r;
+    count++;
   }
 
-  // Добавляем нуль-терминатор в конец строки
-  result[index] = '\0';
-
-  // переворачием в обратном порядке
-  for (int i = 0; i < index / 2; i++)
+  // Выводим результат в обратном порядке
+  printf("Результат: ");
+  for (int i = count - 1; i >= 0; i--)
   {
-    char temp = result[i];
-    result[i] = result[index - i - 1];
-    result[index - i - 1] = temp;
+    printf("%d", digits[i]);
   }
-
-  // Выводим результат
-  printf("Результат в системе с основанием 2^%d: %s\n", r, result);
+  printf("\n");
 }
 
 int main()
 {
-  unsigned int num;
-  int r;
+  int number, r;
 
-  // Ввод числа и основания
-  printf("Введите число: ");
-  scanf("%u", &num);
+  printf("Введите десятичное число: ");
+  scanf("%d", &number);
 
-  printf("Введите значение r (1 <= r <= 5): ");
+  printf("Введите r (от 1 до 5): ");
   scanf("%d", &r);
 
-  // Проверка допустимого значения r
   if (r < 1 || r > 5)
   {
-    printf("Недопустимое значение r. Оно должно быть от 1 до 5.\n");
+    printf("r должно быть от 1 до 5\n");
     return 1;
   }
 
-  // Вызов функции перевода числа
-  convert_to_base2r(num, r);
-
+  convertToBase2R(number, r);
   return 0;
 }
