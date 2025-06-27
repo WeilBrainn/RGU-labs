@@ -1,0 +1,5 @@
+# ninja log v6
+1	338	7726507584774688	CMakeFiles/task10.dir/main.cpp.obj	eddebe1c600d3b9e
+3	278	7726509815873336	CMakeFiles/task10.dir/main.cpp.obj	eddebe1c600d3b9e
+5	289	7726509815883348	CMakeFiles/task10.dir/skew_priority_queue.cpp.obj	4afd2eb38966ff2f
+289	352	7726509818726782	task10.exe	f654b4fe42c6163b

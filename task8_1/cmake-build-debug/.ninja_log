@@ -1,0 +1,4 @@
+# ninja log v6
+2	283	7726713587026486	CMakeFiles/task8_1.dir/main.cpp.obj	5eeb551c405d79fa
+4	395	7726713733992234	CMakeFiles/task8_1.dir/fibonacci_heap.cpp.obj	9dc6f6927805cdfd
+396	452	7726713737912531	task8_1.exe	50f889aeca6a2d4b

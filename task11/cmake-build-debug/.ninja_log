@@ -1,0 +1,5 @@
+# ninja log v6
+1	448	7726717285418694	CMakeFiles/task11.dir/main.cpp.obj	2be0f87e85999d4e
+3	487	7726717285438711	CMakeFiles/task11.dir/treap.cpp.obj	26bb4cbf45c5a3d1
+2	166	7726721398010552	build.ninja	c9ce6d419eac18a9
+3	579	7726721398170695	CMakeFiles/task11.dir/main.cpp.obj	2be0f87e85999d4e

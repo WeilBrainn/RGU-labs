@@ -1,0 +1,5 @@
+# ninja log v6
+1	171	7726711963759774	build.ninja	475928d628767e84
+1	280	7726511361295467	CMakeFiles/task9.dir/main.cpp.obj	201fe83d0c73139a
+304	356	7726511364318223	task9.exe	8643df1cb8dd21b3
+2	304	7726511361305477	CMakeFiles/task9.dir/leftist_priority_queue.cpp.obj	b1e11296f074469e
